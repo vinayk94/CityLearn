@@ -8,6 +8,55 @@ minimize its own electricity consumption but also the electricity consumption of
 This incentivizes not just reducing the net electricity consumption, but also flattening the curve of net electrical demand, as higher values for demand contribute a lot more to the penalty than lower values for demand.
 """
 import numpy as np
+import sys
+
+"""
+
+# Reward function for the multi-agent (decentralized) agents
+class reward_function_ma:
+    def __init__(self, n_agents, building_info):
+        self.n_agents = n_agents
+        self.building_info = building_info
+
+    def get_rewards(self, electricity_demand):
+        electricity_demand = np.float32(electricity_demand)
+        total_electricity_demand = 0
+        for e in electricity_demand:
+            total_electricity_demand += -e
+
+        price = max(total_electricity_demand * 0.01, 0)
+
+        for i in range(len(electricity_demand)):
+            electricity_demand[i] = price * electricity_demand[i]
+
+        return electricity_demand
+
+
+        # Single-agent reward
+        # reward_ = np.array(electricity_demand)**3.0
+        # reward_[reward_>0] = 0
+        # return list(reward_)
+    
+      
+# Reward function for the single-agent (centralized) agent
+def reward_function_sa(electricity_demand):
+    total_energy_demand = 0
+    for e in electricity_demand:
+        total_energy_demand += -e
+
+    price = max(total_energy_demand * 0.01, 0)
+
+    for i in range(len(electricity_demand)):
+        electricity_demand[i] = price * electricity_demand[i]
+        
+    #reward_ = np.array(electricity_demand)**3.0
+    #reward_[reward_>0] = 0
+    #return list(reward_)
+    
+    #return sum(reward_)
+
+    return sum(electricity_demand)
+"""
 
 # Reward function for the multi-agent (decentralized) agents
 class reward_function_ma:
@@ -21,22 +70,31 @@ class reward_function_ma:
         total_electricity_demand = 0
         for e in electricity_demand:
             total_electricity_demand += -e
+        #print(total_electricity_demand)
+        #sys.exit()
             
         electricity_demand = np.array(electricity_demand)
         
         return list(np.sign(electricity_demand)*0.01*(np.array(np.abs(electricity_demand))**2 * max(0, total_electricity_demand)))
-        
-        # Single-agent reward
-        # reward_ = np.array(electricity_demand)**3.0
-        # reward_[reward_>0] = 0
-        # return list(reward_)
-    
-      
-# Reward function for the single-agent (centralized) agent
+
+
+    # Reward function for the single-agent (centralized) agent
 def reward_function_sa(electricity_demand):
 
-    reward_ = -np.array(electricity_demand).sum()
-    reward_ = max(0, reward_)
-    reward_ = reward_**3.0
+    def __init__(self, n_agents, building_info):
+        self.n_agents = n_agents
+        self.building_info = building_info
+
+    # Electricity_demand contains negative values when the building consumes more electricity than it generates
+     
+    electricity_demand = np.float32(electricity_demand)
+    total_electricity_demand = 0
+    for e in electricity_demand:
+        total_electricity_demand += -e
+            
+    electricity_demand = np.array(electricity_demand)
+    reward_ = list(np.sign(electricity_demand)*0.01*(np.array(np.abs(electricity_demand))**2 * max(0, total_electricity_demand)))
     
-    return reward_
+    return sum(reward_)
+
+
