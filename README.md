@@ -2,7 +2,7 @@
 
 This repository contains the work submitted to the ([citylearn challenge 2020](https://sites.google.com/view/citylearnchallenge/previous-edition-2020?authuser=0)) and the extensions on it.
 
-The updated description of the environment and the general utility functions can be found at the ([challenge page](https://sites.google.com/view/citylearnchallenge/environment))
+The updated description of the environment and the general utility functions can be found at the [page](https://sites.google.com/view/citylearnchallenge/environment).
 
 #### Additions
 * A central [DDPG](https://arxiv.org/abs/1509.02971) controller which is submitted to the 2020 edition is added.
@@ -27,12 +27,11 @@ In order to run the main files with the sample agent provided you will need:
 
 ## Files
 - [ddpg_central_agent.py](/ddpg_central_agent.py):  DDPG agent used for the submission.
-- [single_agent_sac.py](/single_agent_sac.py) and [multi_agent_sac.py](/multi_agent_sac.py): SAC implementation for the centralized and decentralized settings and also their respective training files.[train_single_agent_sac.py](/train_single_agent_sac.py) and [train_multi_agent_sac.py](/train_multi_agent_sac.py)
-- [buildings_state_action_space.json](/buildings_state_action_space.json): json file containing the possible states and actions for every building, from which users can choose.
-- [building_attributes.json](/data/building_attributes.json): json file containing the attributes of the buildings and which users can modify.
+- [single_agent_sac.py](/single_agent_sac.py) and [multi_agent_sac.py](/multi_agent_sac.py): SAC implementation for the centralized and decentralized settings and also their respective training files; [train_single_agent_sac.py](/train_single_agent_sac.py) and [train_multi_agent_sac.py](/train_multi_agent_sac.py).
+- [buildings_state_action_space.json](/buildings_state_action_space.json): json file containing the possible states and actions for every building.
 - [citylearn.py](/citylearn.py): Contains the ```CityLearn``` environment and the functions ```building_loader()``` and ```autosize()```
 - [energy_models.py](/energy_models.py): Contains the classes ```Building```, ```HeatPump``` and ```EnergyStorage```, which are called by the ```CityLearn``` class.
-- [reward_function.py](/reward_function.py): Contains the reward functions that wrap and modifiy the rewards obtained from ```CityLearn```. This function can be modified by the user in order to minimize the cost function of ```CityLearn```. There are two reward functions, one works for multi-agent systems (decentralized RL agents), and the other works for single-agent systems (centralized RL agent). Setting the attribute central_agent=True in CityLearn will make the environment return the output from sa_reward_function, while central_agent=False (default mode) will make the environment return the output from ma_reward_function.
-- [example_rbc.ipynb](/example_rbc.ipynb): jupyter lab file. Example of the implementation of a manually optimized Rule-based controller (RBC) that can be used for comparison
-- [example_central_agent.ipynb](/example_central_agent.ipynb): jupyter lab file. Example of the implementation of a SAC centralized RL algorithm from Open AI stable baselines, for 1 and 9 buildings.
+- [reward_function.py](/reward_function.py): Contains the reward functions that wrap and modifiy the rewards obtained from ```CityLearn```.  There are two reward functions, one works for multi-agent systems (decentralized RL agents), and the other works for single-agent systems (centralized RL agent). Setting the attribute central_agent=True in CityLearn will make the environment return the output from sa_reward_function, while central_agent=False (default mode) will make the environment return the output from ma_reward_function.
+- [example_rbc.ipynb](/example_rbc.ipynb): jupyter lab file. Example of the implementation of a manually optimized Rule-based controller (RBC) that can be used for comparison.
+
 
