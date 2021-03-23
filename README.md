@@ -5,8 +5,8 @@ This repository contains the work submitted to the ([citylearn challenge 2020](h
 The updated description of the environment and the general utility functions can be found at the ([challenge page](https://sites.google.com/view/citylearnchallenge/environment))
 
 #### Additions
-    * A central [DDPG](https://arxiv.org/abs/1509.02971) controller which is submitted to the 2020 edition is added.
-    * And the [SAC](https://arxiv.org/abs/1801.01290) extensions for the central and decentralized settings.
+* A central [DDPG](https://arxiv.org/abs/1509.02971) controller which is submitted to the 2020 edition is added.
+* And the [SAC](https://arxiv.org/abs/1801.01290) extensions for the central and decentralized settings.
 
 CityLearn is an open source OpenAI Gym environment for the implementation of Multi-Agent Reinforcement Learning (RL) for building energy coordination and demand response in cities. Its objective is to facilitiate and standardize the evaluation of RL agents such that different algorithms can be easily compared with each other.
 ![Demand-response](https://github.com/intelligent-environments-lab/CityLearn/blob/master/images/dr.jpg)
@@ -26,7 +26,8 @@ In order to run the main files with the sample agent provided you will need:
 
 
 ## Files
-
+- [ddpg_central_agent.py](/ddpg_central_agent.py):  DDPG agent used for the submission.
+- [single_agent_sac.py](/single_agent_sac.py) and [multi_agent_sac.py](/multi_agent_sac.py): SAC implementation for the centralized and decentralized settings and also their respective training files.[train_single_agent_sac.py](/train_single_agent_sac.py) and [train_multi_agent_sac.py](/train_multi_agent_sac.py)
 - [buildings_state_action_space.json](/buildings_state_action_space.json): json file containing the possible states and actions for every building, from which users can choose.
 - [building_attributes.json](/data/building_attributes.json): json file containing the attributes of the buildings and which users can modify.
 - [citylearn.py](/citylearn.py): Contains the ```CityLearn``` environment and the functions ```building_loader()``` and ```autosize()```
