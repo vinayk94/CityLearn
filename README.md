@@ -4,7 +4,7 @@ This repository contains the work submitted to the ([citylearn challenge 2020](h
 
 The updated description of the environment and the general utility functions can be found at the [page](https://sites.google.com/view/citylearnchallenge/environment).
 
-#### Additions
+## Additions
 * A central [DDPG](https://arxiv.org/abs/1509.02971) controller which is submitted to the 2020 edition is added.
 * And the [SAC](https://arxiv.org/abs/1801.01290) extensions for the central and decentralized settings.
 
